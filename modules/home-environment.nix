@@ -234,6 +234,8 @@ in
     # script's "check" and the "write" phases.
     home.activation.writeBoundary = dagEntryAnywhere "";
 
+    # Install packages to the user environment. This is a no-op if
+    # Home Manager is used as a NixOS module.
     home.activation.installPackages = dagEntryAfter ["writeBoundary"] ''
       $DRY_RUN_CMD nix-env -i ${cfg.path}
     '';

@@ -45,7 +45,7 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && !config.nixosSubmodule) {
     warnings = mkIf (cfg.modulesPath != null) [
       ("'programs.home-manager.modulesPath' is deprecated, "
         + "please use 'programs.home-manager.path")
