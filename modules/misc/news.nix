@@ -442,12 +442,14 @@ in
           December 6, 2017.
         '';
       }
+
       {
         time = "2017-11-12T00:18:59+00:00";
         message = ''
           A new program module is available: 'programs.neovim'.
         '';
       }
+
       {
         time = "2017-11-14T19:56:49+00:00";
         condition = with config.xsession.windowManager; (
@@ -460,6 +462,27 @@ in
           Startup commands are now executed with the startup-notification
           support enabled by default. Please, set 'notification' to false
           where --no-startup-id option is necessary.
+        '';
+      }
+
+      {
+        time = "2017-11-07T21:56:58+00:00";
+        condition =
+          config.gtk.themeName != "_mkMergedOptionModule"
+          || config.gtk.iconThemeName != "_mkMergedOptionModule";
+        message = ''
+          The options
+
+              gtk.themeName    and    gtk.iconThemeName
+
+          are deprecated and will be removed on December 7, 2017.
+
+          Please use 'gtk.theme.name' and 'gtk.iconTheme.name'
+          instead.
+
+          This change was made to introduce the options
+          'gtk.theme.package' and 'gtk.iconTheme.package', which allow
+          you to specify the package that provides the theme.
         '';
       }
     ];
