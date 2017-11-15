@@ -461,7 +461,7 @@ let
 
   modeStr = name: keybindings: ''
     mode "${name}" {
-    ${keybindingsStr keybindings}
+      ${keybindingsStr keybindings}
     }
   '';
 
@@ -496,8 +496,7 @@ let
         command
       else
         "i3-msg 'workspace ${workspace}; exec ${command}'"
-    }
-  '';
+    }'';
 
   configFile = pkgs.writeText "i3.conf" ((if cfg.config != null then with cfg.config; ''
     font pango:${concatStringsSep ", " fonts}
